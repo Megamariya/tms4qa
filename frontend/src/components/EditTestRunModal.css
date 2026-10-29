@@ -1,0 +1,11 @@
+.etr-cases-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.etr-cases-count {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,97 @@
+# TMS4QA — локальный стек разработки.
+# Все порты, пароли и секреты берутся из файла .env рядом с этим файлом
+# (скопируйте .env.example → .env и заполните значения).
+
+services:
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-tms}
+      TZ: ${TZ:-UTC}
+    ports:
+      - "${POSTGRES_PORT:-5434}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tms_network
+
+  backend:
+    build: ./backend
+    command: bash /app/start.sh
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-UTC}
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-tms}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES:-60}
+      REFRESH_TOKEN_EXPIRE_DAYS: ${REFRESH_TOKEN_EXPIRE_DAYS:-30}
+      SUPERADMIN_EMAIL: ${SUPERADMIN_EMAIL:-admin@system.local}
+      SUPERADMIN_PASSWORD: ${SUPERADMIN_PASSWORD:?Set SUPERADMIN_PASSWORD in .env}
+      MINIO_URL: minio:9000
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set MINIO_ROOT_PASSWORD in .env}
+      MINIO_BUCKET: ${MINIO_BUCKET:-tms-attachments}
+      MINIO_PUBLIC_URL: http://localhost:${MINIO_API_PORT:-9000}
+    volumes:
+      - ./backend:/app
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - tms_network
+
+  minio:
+    # Официальные образы minio/minio больше не публикуются — используется
+    # совместимая сборка Pigsty (тот же MinIO, AGPL-3.0).
+    image: pgsty/minio:RELEASE.2026-08-04T00-00-00Z
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set MINIO_ROOT_PASSWORD in .env}
+      TZ: ${TZ:-UTC}
+    ports:
+      - "${MINIO_API_PORT:-9000}:9000"
+      - "${MINIO_CONSOLE_PORT:-9001}:9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tms_network
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-UTC}
+      VITE_API_URL: http://backend:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "${FRONTEND_PORT:-5173}:5173"
+    depends_on:
+      - backend
+    networks:
+      - tms_network
+
+volumes:
+  postgres_data:
+  minio_data:
+
+networks:
+  tms_network:

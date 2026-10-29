@@ -1,0 +1,70 @@
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--color-bg-soft);
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.app-main {
+  flex: 1;
+  overflow: auto;
+  overflow-anchor: none;
+  background: var(--color-bg);
+}
+
+/* ── Mobile overlay ── */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  top: var(--topbar-height);
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 200;
+  animation: overlay-in 0.2s ease;
+}
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Mobile layout ── */
+@media (max-width: 768px) {
+  .app-main {
+    overflow-x: hidden;
+  }
+}
+.is-mobile-view .app-main {
+  overflow-x: hidden;
+}
+
+.sidebar-expand-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  width: 20px;
+  height: 48px;
+  background: var(--color-bg-sidebar);
+  border: 1px solid var(--color-border);
+  border-left: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s, color 0.1s;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.06);
+}
+.sidebar-expand-btn:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}

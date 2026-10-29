@@ -1,0 +1,82 @@
+# ── Environment / secrets ───────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+secrets/
+credentials/
+*credentials*.json
+service-account*.json
+accs*.txt
+
+# ── Python ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+
+# ── Node / frontend ─────────────────────────────────────────────────────
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── Tests / artifacts ───────────────────────────────────────────────────
+coverage/
+test-results/
+playwright-report/
+reports/
+*.lcov
+
+# ── Local databases / dumps ─────────────────────────────────────────────
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.sql.gz
+
+# ── Logs / temp ─────────────────────────────────────────────────────────
+logs/
+*.log
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~
+
+# ── IDE / AI-assistant local settings ───────────────────────────────────
+.idea/
+.vscode/
+*.iml
+.claude/
+CLAUDE.local.md
+
+# ── OS ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Design sources ──────────────────────────────────────────────────────
+*.fig

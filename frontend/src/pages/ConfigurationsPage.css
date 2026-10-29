@@ -1,0 +1,102 @@
+.cfg-page { padding: 24px 32px 60px; max-width: 860px; }
+.cfg-header { margin-bottom: 28px; }
+.cfg-title { font-size: 22px; font-weight: 700; margin: 0 0 4px; color: var(--color-text); }
+.cfg-subtitle { font-size: 13px; color: var(--color-text-muted); margin: 0; }
+
+.cfg-sections { display: flex; flex-direction: column; gap: 24px; }
+
+.cfg-section { border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; }
+.cfg-section-title { font-size: 13px; font-weight: 700; margin: 0; padding: 12px 20px; background: var(--color-bg-soft); border-bottom: 1px solid var(--color-border); color: var(--color-text); }
+.cfg-section-body { padding: 8px 0; }
+
+.cfg-toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; gap: 16px; cursor: pointer; border-bottom: 1px solid var(--color-border); }
+.cfg-toggle-row:last-child { border-bottom: none; }
+.cfg-toggle-row:hover { background: var(--color-bg-soft); }
+.cfg-toggle-text { flex: 1; }
+.cfg-toggle-label { font-size: 13px; font-weight: 500; color: var(--color-text); }
+.cfg-toggle-hint { font-size: 12px; color: var(--color-text-muted); margin-top: 2px; }
+
+.cfg-toggle-switch { width: 40px; height: 22px; border-radius: 11px; background: var(--color-border-strong); position: relative; flex-shrink: 0; transition: background 0.2s; cursor: pointer; }
+.cfg-toggle-on { background: var(--color-accent); }
+.cfg-toggle-thumb { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: left 0.2s; }
+.cfg-toggle-on .cfg-toggle-thumb { left: 21px; }
+
+/* ── Section title clickable toggle ── */
+.cfg-section-title--clickable {
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  user-select: none;
+  transition: background 0.1s;
+}
+.cfg-section-title--clickable:hover { background: var(--color-bg-soft); }
+.cfg-section-toggle { font-size: 11px; color: var(--color-text-muted); }
+
+/* ── Suite order section ── */
+.cfg-suite-list { display: flex; flex-direction: column; gap: 2px; padding: 0 20px; }
+.cfg-suite-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; border: 1px solid var(--color-border);
+  border-radius: 6px; background: var(--color-bg);
+  user-select: none; transition: background 0.1s;
+}
+.cfg-suite-row:hover { background: var(--color-bg-soft); }
+.cfg-suite-row:active { cursor: grabbing; }
+.cfg-suite-drag { font-size: 16px; color: var(--color-text-muted); opacity: 0.5; line-height: 1; cursor: grab; }
+.cfg-suite-idx { font-size: 11px; color: var(--color-text-muted); min-width: 24px; text-align: right; margin-left: auto; }
+.cfg-suite-name { font-size: 13px; font-weight: 500; color: var(--color-text); flex: 1; }
+.cfg-suite-parent { font-size: 11px; color: var(--color-text-muted); }
+
+.cfg-suite-child { background: var(--color-bg-soft); border-style: dashed; }
+.cfg-suite-child .cfg-suite-name { font-size: 12px; font-weight: 400; }
+.cfg-suite-child .cfg-suite-drag { opacity: 0.7; font-size: 14px; }
+
+.cfg-suite-toggle {
+  background: none; border: none; cursor: pointer;
+  width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: var(--color-text-muted); flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  transition: background 0.1s;
+}
+.cfg-suite-toggle:hover { background: var(--color-border); color: var(--color-text); }
+
+/* ── Team section ── */
+.cfg-team-empty {
+  padding: 20px; font-size: 13px; color: var(--color-text-muted);
+  text-align: center; line-height: 1.6;
+}
+.cfg-team-list { display: flex; flex-direction: column; }
+.cfg-team-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 20px; border-bottom: 1px solid var(--color-border);
+  transition: background 0.1s;
+}
+.cfg-team-row:last-child { border-bottom: none; }
+.cfg-team-row:hover { background: var(--color-bg-soft); }
+.cfg-team-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+.cfg-team-info { flex: 1; min-width: 0; }
+.cfg-team-name { font-size: 13px; font-weight: 600; color: var(--color-text); }
+.cfg-team-email { font-size: 11px; color: var(--color-text-muted); margin-top: 2px; }
+.cfg-team-role {
+  padding: 2px 10px; border-radius: 99px; font-size: 11px; font-weight: 600;
+  flex-shrink: 0; white-space: nowrap;
+}
+.cfg-team-actions { display: flex; gap: 4px; flex-shrink: 0; }
+
+/* ── Report Templates subsections ── */
+.cfg-subsection { border-top: 1px solid var(--color-border); }
+.cfg-subsection:first-of-type { border-top: none; }
+.cfg-subsection-title {
+  font-size: 12px; font-weight: 700; margin: 0;
+  padding: 10px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; user-select: none;
+  color: var(--color-text-muted);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  background: transparent;
+  transition: background 0.1s;
+}
+.cfg-subsection-title:hover { background: var(--color-bg-soft); }

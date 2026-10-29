@@ -1,0 +1,372 @@
+.tc-form {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 32px 80px;
+}
+
+.tc-form-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.tc-form-header h1 {
+  flex: 1;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.btn-icon {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+
+.btn-icon:hover {
+  background: var(--color-bg-soft);
+  border-color: var(--color-border);
+}
+
+.tc-form-error {
+  background: var(--color-failed-bg);
+  color: var(--color-failed);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 18px;
+}
+
+.tc-section {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.tc-section-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+
+.tc-section-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.tc-section-row .tc-section-title {
+  margin: 0;
+}
+
+.tc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 18px;
+}
+
+.tc-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.tc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tc-field-full {
+  grid-column: 1 / -1;
+}
+
+.tc-field-label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.tc-required {
+  color: var(--color-failed);
+  margin-left: 2px;
+}
+
+.tc-checks {
+  display: flex;
+  gap: 24px;
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.tc-checks input[type="checkbox"] {
+  margin-right: 4px;
+}
+
+.tc-tags-input {
+  width: 100%;
+}
+
+.tc-empty {
+  color: var(--color-text-subtle);
+  font-size: 13px;
+  padding: 10px 0;
+}
+
+.tc-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tc-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.tc-step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.tc-step-fields {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.tc-step-fields-v2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tc-step-row-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.tc-step-stack-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tc-step-api-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-soft);
+}
+
+.tc-step-api-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tc-step-api-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tc-step-api-row {
+  display: flex;
+  gap: 8px;
+}
+
+.tc-step-api-textarea {
+  resize: vertical;
+  font-size: 12px;
+  font-family: monospace;
+  min-height: 50px;
+}
+
+.tc-step-expected-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tc-step-expected-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tc-step-expected-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tc-step-expected-input {
+  flex: 1;
+  font-size: 13px;
+}
+
+.tc-step-expected-del {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+}
+.tc-step-expected-del:hover {
+  background: var(--color-failed-bg);
+  color: var(--color-failed);
+  border-color: var(--color-failed);
+}
+
+.tc-step-expected-add {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  margin-top: 2px;
+}
+.tc-step-expected-add:hover {
+  text-decoration: underline;
+}
+
+.tc-step-attach-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.tc-step-attach-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.tc-step-thumb {
+  width: 72px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.tc-step-attach-del {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.tc-step-attach-wrap:hover .tc-step-attach-del {
+  opacity: 1;
+}
+
+.tc-form-footer {
+  position: sticky;
+  bottom: 0;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding: 14px 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.btn-link {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 6px 4px;
+}
+
+.btn-link:hover {
+  color: var(--color-text);
+}
+
+/* ── Mobile: collapse the 3-column grid so fields can't blow it out
+   horizontally — a long Suite/select value used to force the whole grid
+   (and the Title/Description rows riding along in it) past the viewport
+   edge instead of wrapping. ── */
+@media (max-width: 768px) {
+  .tc-form {
+    padding: 16px 14px 80px;
+  }
+  .tc-grid {
+    grid-template-columns: 1fr;
+  }
+  .tc-field {
+    min-width: 0;
+  }
+  .tc-step-row-inputs {
+    grid-template-columns: 1fr;
+  }
+}
+.is-mobile-view .tc-form {
+  padding: 16px 14px 80px;
+}
+.is-mobile-view .tc-grid {
+  grid-template-columns: 1fr;
+}
+.is-mobile-view .tc-field {
+  min-width: 0;
+}
+.is-mobile-view .tc-step-row-inputs {
+  grid-template-columns: 1fr;
+}

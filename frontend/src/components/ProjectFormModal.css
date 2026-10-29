@@ -1,0 +1,192 @@
+.pf-error {
+  background: var(--color-failed-bg);
+  color: var(--color-failed);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.pf-field {
+  margin-bottom: 18px;
+}
+
+.pf-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.pf-name-row {
+  display: flex;
+  gap: 10px;
+}
+
+.pf-name-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.pf-name-input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.pf-name-counter {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: var(--color-text-subtle);
+  pointer-events: none;
+}
+
+.pf-abbr-input {
+  width: 64px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Markdown editor (заглушка) */
+.pf-md-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  font-size: 13px;
+}
+
+.pf-md-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  font-weight: 500;
+}
+
+.pf-md-tab.is-active {
+  color: var(--color-text);
+}
+
+.pf-md-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--color-border);
+  margin: 0 4px;
+}
+
+.pf-md-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  width: 28px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.pf-md-btn:not(:disabled):hover {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+}
+
+.pf-md-textarea {
+  width: 100%;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  resize: vertical;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 13px;
+}
+
+.pf-md-hint {
+  font-size: 11px;
+  color: var(--color-text-subtle);
+  margin-top: 4px;
+}
+
+/* Private project toggle */
+.pf-private {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+
+.pf-private-title {
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.pf-private-desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* iOS-style toggle */
+.pf-toggle {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.pf-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.pf-toggle-track {
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  background: var(--color-border-strong);
+  border-radius: 999px;
+  transition: background 0.15s;
+  position: relative;
+}
+
+.pf-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.15s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.pf-toggle input:checked + .pf-toggle-track {
+  background: #2563eb;
+}
+
+.pf-toggle input:checked + .pf-toggle-track .pf-toggle-thumb {
+  transform: translateX(16px);
+}
+
+/* Org selector (SUPER_ADMIN) */
+.pf-org-select {
+  width: 100%;
+}
+
+.pf-org-hint {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 5px;
+}

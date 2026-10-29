@@ -1,0 +1,275 @@
+@import "./tokens.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* ===== Кнопки ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.btn:hover {
+  background: var(--color-bg-soft);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+/* ===== Бейджи статусов ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.badge-passed {
+  background: var(--color-passed-bg);
+  color: var(--color-passed);
+}
+.badge-failed {
+  background: var(--color-failed-bg);
+  color: var(--color-failed);
+}
+.badge-blocked {
+  background: var(--color-blocked-bg);
+  color: var(--color-blocked);
+}
+.badge-skipped {
+  background: var(--color-skipped-bg);
+  color: var(--color-skipped);
+}
+.badge-invalid {
+  background: var(--color-invalid-bg);
+  color: var(--color-invalid);
+}
+.badge-untested {
+  background: var(--color-untested-bg);
+  color: var(--color-untested);
+}
+
+/* Severity */
+.badge-sev-blocker  { background: #fee2e2; color: #b91c1c; }
+.badge-sev-critical { background: #ffedd5; color: #c2410c; }
+.badge-sev-major    { background: #fef3c7; color: #b45309; }
+.badge-sev-normal   { background: #e5e7eb; color: #4b5563; }
+.badge-sev-minor    { background: #dbeafe; color: #1e40af; }
+.badge-sev-trivial  { background: #f3f4f6; color: #6b7280; }
+
+/* ===== Таблицы ===== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table thead th {
+  text-align: left;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table tbody tr:hover {
+  background: var(--color-bg-soft);
+}
+
+/* ===== Инпуты ===== */
+.input {
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input:focus {
+  border-color: var(--color-accent);
+}
+
+/* ===== Card / panel ===== */
+.panel {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+/* ===== Inline modals (modal-backdrop + modal) ===== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal {
+  background: var(--color-bg);
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+  max-width: 100%;
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ===== Form label ===== */
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ===== btn-link / btn-secondary ===== */
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+.btn-link:hover { text-decoration: underline; }
+
+.btn-secondary {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+.btn-secondary:hover { background: var(--color-bg-soft); color: var(--color-text); }
+
+/* ===== Dark theme scrollbars ===== */
+[data-theme="dark"] {
+  scrollbar-color: #374151 #1a1e2e;
+  scrollbar-width: thin;
+}
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #1a1e2e;
+  border-radius: 4px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 4px;
+  border: 1px solid #1a1e2e;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+[data-theme="dark"] ::-webkit-scrollbar-corner {
+  background: #1a1e2e;
+}
+
+/* ── Mobile-friendly global styles ── */
+@media (max-width: 768px) {
+  /* Touch targets */
+  .btn { min-height: 40px; padding: 8px 14px; }
+  .input, select, textarea { min-height: 40px; font-size: 16px; /* prevent iOS zoom */ }
+
+  /* Tables scroll horizontally */
+  .table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+
+  /* Modals go full-width */
+  .modal-backdrop { padding: 8px; align-items: flex-end; }
+  .modal { border-radius: 12px 12px 0 0; max-height: calc(100vh - 32px); width: 100%; }
+
+  /* Drawers go full-screen */
+  [class*="drawer"] { width: 100% !important; max-width: 100vw !important; }
+}
+
+/* Same rules for forced mobile view */
+.is-mobile-view .btn { min-height: 40px; padding: 8px 14px; }
+.is-mobile-view .input,
+.is-mobile-view select,
+.is-mobile-view textarea { min-height: 40px; font-size: 16px; }
+.is-mobile-view .table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+.is-mobile-view .modal-backdrop { padding: 8px; align-items: flex-end; }
+.is-mobile-view .modal { border-radius: 12px 12px 0 0; max-height: calc(100vh - 32px); width: 100%; }
+.is-mobile-view [class*="drawer"] { width: 100% !important; max-width: 100vw !important; }
+
+/* ── Dark theme: modals ── */
+/* Dark theme: modals get a subtle outline so they don't blend into the background */
+[data-theme="dark"] .modal {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 60px rgba(0, 0, 0, 0.65);
+}
+[data-theme="dark"] .modal-backdrop {
+  background: rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,91 @@
+:root {
+  /* Базовая палитра */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f7f8fa;
+  --color-bg-sidebar: #ffffff;
+  --color-border: #e5e7eb;
+  --color-border-strong: #d1d5db;
+
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-text-subtle: #9ca3af;
+
+  /* Акцент — фиолетовый, как Q-логотип */
+  --color-accent: #5a4cf0;
+  --color-accent-hover: #4a3ed8;
+  --color-accent-soft: #eeebff;
+
+  /* Статусы */
+  --color-passed: #16a34a;
+  --color-passed-bg: #dcfce7;
+  --color-failed: #dc2626;
+  --color-failed-bg: #fee2e2;
+  --color-blocked: #ca8a04;
+  --color-blocked-bg: #fef3c7;
+  --color-skipped: #6b7280;
+  --color-skipped-bg: #f3f4f6;
+  --color-invalid: #7c3aed;
+  --color-invalid-bg: #ede9fe;
+  --color-untested: #4b5563;
+  --color-untested-bg: #e5e7eb;
+
+  /* Severity / Priority */
+  --color-blocker: #dc2626;
+  --color-critical: #ea580c;
+  --color-high: #f97316;
+  --color-normal: #6b7280;
+
+  /* Размеры */
+  --sidebar-width: 220px;
+  --topbar-height: 48px;
+  --project-bar-height: 40px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  --color-hover: rgba(0,0,0,0.04);
+}
+
+/* ── Dark theme ── */
+[data-theme="dark"] {
+  --color-bg: #0f1117;
+  --color-bg-soft: #1a1e2e;
+  --color-bg-sidebar: #0f1117;
+  --color-border: #2a2f45;
+  --color-border-strong: #363d56;
+
+  --color-text: #e2e4f0;
+  --color-text-muted: #8b91b0;
+  --color-text-subtle: #555d7a;
+
+  --color-accent: #7c6df4;
+  --color-accent-hover: #6a5be0;
+  --color-accent-soft: #1e1a3d;
+
+  --color-passed: #4ade80;
+  --color-passed-bg: #052e16;
+  --color-failed: #f87171;
+  --color-failed-bg: #2d0707;
+  --color-blocked: #fbbf24;
+  --color-blocked-bg: #2d1b00;
+  --color-skipped: #9ca3af;
+  --color-skipped-bg: #1f2937;
+  --color-invalid: #a78bfa;
+  --color-invalid-bg: #1e1438;
+  --color-untested: #6b7280;
+  --color-untested-bg: #1f2937;
+
+  --color-hover: rgba(255,255,255,0.05);
+}
+
+/* ── Mobile: topbar wraps onto two rows (top nav becomes visible) ── */
+@media (max-width: 768px) {
+  :root { --topbar-height: 80px; }
+}
+.is-mobile-view {
+  --topbar-height: 80px;
+}
